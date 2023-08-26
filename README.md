@@ -7,7 +7,10 @@
 ```sh
 git clone https://github.com/RaraykinValery/phone_book.git
 ```
-
+- Перейдите в папку с проектом:
+```sh
+cd phone_book
+```
 - Установите зависимости из файла `requirements.txt`:
 ```bash
 pip install -r requirements.txt
