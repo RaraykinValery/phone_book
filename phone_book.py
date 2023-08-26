@@ -35,7 +35,7 @@ def execute_add(args: argparse.Namespace) -> None:
 def execute_edit(args: argparse.Namespace) -> None:
     """Вызывает функцию edit и сохраняет её результаты"""
 
-    save(edit(args.phone_book, args.id, map_arguments_to_columns(args)), path=args.file)
+    save(edit(args.phone_book, args.index, map_arguments_to_columns(args)), path=args.file)
 
 
 def main():
@@ -68,7 +68,7 @@ def main():
     parser_edit = subparsers.add_parser(
         "edit", parents=[file_path_parser, arguments_by_columns_parser]
     )
-    parser_edit.add_argument("-i", "--id", type=int, required=True)
+    parser_edit.add_argument("-i", "--index", type=int, required=True)
     parser_edit.set_defaults(func=execute_edit)
 
     parser_add = subparsers.add_parser(

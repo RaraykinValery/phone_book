@@ -51,17 +51,17 @@ def add(phone_book: pd.DataFrame, record_fields: dict[str, str]) -> pd.DataFrame
 
 
 def edit(
-    phone_book: pd.DataFrame, id: int, fields_to_edit: dict[str, str]
+    phone_book: pd.DataFrame, index: int, fields_to_edit: dict[str, str]
 ) -> pd.DataFrame:
     """Редактирует запись в справочнике и возвращает обновлённый справочник"""
 
-    if len(phone_book) < id:
+    if len(phone_book) < index:
         print("Такой записи нет в справочнике")
         return phone_book
 
     for column, value in fields_to_edit.items():
         if value:
-            phone_book.loc[id, column] = value
+            phone_book.loc[index, column] = value
 
     return phone_book
 
@@ -73,7 +73,6 @@ def display(phone_book: pd.DataFrame) -> None:
 
 
 def save(phone_book: pd.DataFrame, path: str) -> None:
-    """Сортирует и сохраняет справочник в формате CSV по указанному пути"""
+    """Сохраняет справочник в формате CSV по указанному пути"""
 
-    phone_book_sorted = phone_book.sort_values(by=["Фамилия"])
-    phone_book_sorted.to_csv(path, index=False)
+    phone_book.to_csv(path, index=False)
