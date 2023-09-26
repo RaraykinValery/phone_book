@@ -35,7 +35,10 @@ def execute_add(args: argparse.Namespace) -> None:
 def execute_edit(args: argparse.Namespace) -> None:
     """Вызывает функцию edit и сохраняет её результаты"""
 
-    save(edit(args.phone_book, args.index, map_arguments_to_columns(args)), path=args.file)
+    save(
+        edit(args.phone_book, args.index, map_arguments_to_columns(args)),
+        path=args.file,
+    )
 
 
 def main():
@@ -49,10 +52,13 @@ def main():
     arguments_by_columns_parser.add_argument("-p", "--patronymic", type=str)
     arguments_by_columns_parser.add_argument("-o", "--organization", type=str)
     arguments_by_columns_parser.add_argument("-w", "--work_phone", type=str)
-    arguments_by_columns_parser.add_argument("-ph", "--personal_phone", type=str)
+    arguments_by_columns_parser.add_argument(
+        "-ph", "--personal_phone", type=str
+    )
 
     main_parser = argparse.ArgumentParser(
-        description="Search, add, edit phone book records", parents=[file_path_parser]
+        description="Search, add, edit phone book records",
+        parents=[file_path_parser],
     )
     main_parser.set_defaults(func=execute_show)
     main_parser.add_argument("-p", "--page_number", default=1, type=int)

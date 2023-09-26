@@ -22,7 +22,9 @@ def show(phone_book: pd.DataFrame, page_number: int, page_size: int) -> None:
     print(f"\nСтраница {page_number} из {pages_in_book}")
 
 
-def search(phone_book: pd.DataFrame, search_parameters: dict[str, str]) -> pd.DataFrame:
+def search(
+    phone_book: pd.DataFrame, search_parameters: dict[str, str]
+) -> pd.DataFrame:
     """Осуществляет поиск записей в справочнике по указанным параметрам"""
 
     search_result: pd.DataFrame = phone_book
@@ -34,7 +36,9 @@ def search(phone_book: pd.DataFrame, search_parameters: dict[str, str]) -> pd.Da
     return search_result
 
 
-def add(phone_book: pd.DataFrame, record_fields: dict[str, str]) -> pd.DataFrame:
+def add(
+    phone_book: pd.DataFrame, record_fields: dict[str, str]
+) -> pd.DataFrame:
     """Добавляет запись в справочник и возвращает его"""
 
     new_record: pd.DataFrame = pd.DataFrame.from_dict([record_fields])

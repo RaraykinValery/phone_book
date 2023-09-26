@@ -13,12 +13,18 @@ def add_arguments_by_columns(parser: argparse.ArgumentParser) -> None:
 
 
 def count_pages(df: pd.DataFrame, page_size: int) -> int:
-    """Считает количество страниц в справочнике в соответствии с размером страницы"""
+    """
+    Считает количество страниц в справочнике
+    в соответствии с размером страницы
+    """
     return math.ceil(len(df) / page_size)
 
 
 def map_arguments_to_columns(args: argparse.Namespace) -> dict[str, str]:
-    """Преобразует аргументы командной строки в соответствующие имена столбцов"""
+    """
+    Преобразует аргументы командной строки
+    в соответствующие имена столбцов
+    """
 
     map = {
         "Фамилия": args.last_name,
